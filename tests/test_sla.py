@@ -1,4 +1,4 @@
-import unittest
+    import unittest
 from sla import is_overdue
 
 class SLATests(unittest.TestCase):
@@ -16,6 +16,12 @@ class SLATests(unittest.TestCase):
         self.assertTrue(is_overdue(481, "low"))
     def test_zero(self):
         self.assertFalse(is_overdue(0))
+    def test_negative_elapsed(self):
+        with self.assertRaises(ValueError):
+            is_overdue(-1)
+    def test_unknown_priority(self):
+        with self.assertRaises(ValueError):
+            is_overdue(10, "urgent")
 
 if __name__ == "__main__":
     unittest.main()

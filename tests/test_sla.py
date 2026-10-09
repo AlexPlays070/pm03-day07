@@ -1,4 +1,4 @@
-    import unittest
+import unittest
 from sla import is_overdue
 
 class SLATests(unittest.TestCase):
